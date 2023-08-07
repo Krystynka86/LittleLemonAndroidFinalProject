@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LittleLemonAndroidFinalProject</string>
+    <string name="title">Little Lemon</string>
+    <string name="location">Chicago</string>
+    <string name="description">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</string>
+    <string name="order_button_text">Order Take Away</string>
+    <string name="weekly_special">Weekly Special</string>
+    <string name="add_for">Add for</string>
+    <string name="welcome_text">Let\'s get to know you</string>
+    <string name="personal_info">Personal information</string>
+    <string name="caption_first_name">First name</string>
+    <string name="caption_last_name">Last name</string>
+    <string name="caption_email">Email</string>
+    <string name="button_register">Register</string>
+    <string name="button_logout">Logout</string>
+</resources>
