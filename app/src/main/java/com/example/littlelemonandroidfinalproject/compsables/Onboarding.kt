@@ -141,6 +141,7 @@ fun Onboarding (navController: NavHostController){
                         value = firstName,
                         onValueChange = { firstName = it },
                         label = { Text("First name") },
+                        singleLine = true,
                         modifier = Modifier
                             .fillMaxWidth()
                     )
@@ -160,6 +161,7 @@ fun Onboarding (navController: NavHostController){
                         value = lastName,
                         onValueChange = { lastName = it },
                         label = { Text("Last name") },
+                        singleLine = true,
                         modifier = Modifier
                             .fillMaxWidth()
                     )
@@ -179,6 +181,7 @@ fun Onboarding (navController: NavHostController){
                         value = email,
                         onValueChange = { email = it },
                         label = { Text("Email") },
+                        singleLine = true,
                         keyboardOptions = KeyboardOptions.Default.copy(
                             keyboardType = KeyboardType.Email,
                             imeAction = ImeAction.Done

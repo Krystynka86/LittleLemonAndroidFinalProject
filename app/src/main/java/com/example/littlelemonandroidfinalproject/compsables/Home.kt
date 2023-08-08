@@ -79,7 +79,6 @@ fun HomePage(navController: NavController) {
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Header
             Row (
@@ -113,77 +112,107 @@ fun HomePage(navController: NavController) {
             }
 
             // Hero section
-            Column(modifier = Modifier.fillMaxWidth()) {
+
+            Row (
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color = LittleLemonColor.green)
+                    .padding(8.dp),
+            ) {
+                Column{
+                    Text(
+                        text = stringResource(R.string.title),
+                        style = h1,
+                        color = LittleLemonColor.yellow,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+
+            }
+
                 Row(modifier = Modifier
                     .fillMaxWidth()
                     .background(color = LittleLemonColor.green)
                     .padding(8.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly,
                     verticalAlignment = Alignment.CenterVertically
-                ){
-                    Column {
+                ) {
+
+                    // Left Column (Location, Description)
+                    Column(
+                        modifier = Modifier.fillMaxWidth(0.6f)
+                    ) {
+
                         Text(
-                            text = stringResource(R.string.title),
-                            style = h1,
-                            color = LittleLemonColor.yellow
+                            text = stringResource(R.string.location),
+                            style = MaterialTheme.typography.titleLarge,
+                            color = LittleLemonColor.cloud,
+                            fontWeight = FontWeight.Bold,
                         )
-                        Column(modifier = Modifier.fillMaxWidth(0.5f)) {
-                            Text(
-                                text = stringResource(R.string.location),
-                                style = MaterialTheme.typography.titleLarge,
-                                color = LittleLemonColor.cloud,
-                                fontWeight = FontWeight.Bold
-                            )
 
-                            Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
 
-                            Text(
-                                text = stringResource(R.string.description),
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = LittleLemonColor.cloud
-                            )
-                            Spacer(modifier = Modifier.width(16.dp))
-                        }
+                        Text(
+                            text = stringResource(R.string.description),
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = LittleLemonColor.cloud,
+                            modifier = Modifier
+                                .padding(end = 8.dp),
+                        )
 
                     }
-                    Column(verticalArrangement = Arrangement.Center) {
+                    // Image Column
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                    ) {
+
                         Image(
                             painter = painterResource(R.drawable.hero_image),
                             contentDescription = "Hero Image",
+                            contentScale = ContentScale.Crop,
                             modifier = Modifier
-                                .fillMaxWidth(0.6f)
+                                //.fillMaxWidth(0.6f)
+                                .size(150.dp)
                                 .clip(shape = customShapes.medium),
 
-                        )
-                        Spacer(modifier = Modifier.width(16.dp))
+                            )
                     }
 
                 }
 
-                // Search TextField
+            // Search TextField
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color = LittleLemonColor.green)
+                    .padding(bottom = 16.dp)
+            ) {
                 TextField(
                     value = searchPhrase.value,
                     onValueChange = { searchPhrase.value = it },
                     placeholder = { Text("Enter search phrase") },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(horizontal = 8.dp)
+                        .clip(shape = customShapes.medium),
                     leadingIcon = {
                         Icon(
                             imageVector = Icons.Default.Search,
                             contentDescription = ""
                         )
-                    }
+                    },
+                    singleLine = true,
                 )
-
             }
+
+
             Spacer(modifier = Modifier.width(16.dp))
-            // Filtered MenuItems
+            //Filtered MenuItems
             val filteredMenuItems = if  (searchPhrase.value.isBlank()) {
                 databaseMenuItems
             } else {
                databaseMenuItems.filter { menuItem ->
-                   menuItem.title.contains(searchPhrase.value, ignoreCase = true)
+                  menuItem.title.contains(searchPhrase.value, ignoreCase = true)
                }
             }
 
