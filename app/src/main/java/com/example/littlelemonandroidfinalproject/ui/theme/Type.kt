@@ -28,7 +28,7 @@ val Typography = Typography(
         color = LittleLemonColor.charcoal
     ),
     titleLarge = TextStyle(
-        fontFamily = MarkaziRegular,
+        fontFamily = KarlaRegular,
         fontWeight = FontWeight.Normal,
         fontSize = 22.sp,
         lineHeight = 28.sp,
@@ -41,13 +41,20 @@ val Typography = Typography(
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     ),
+    headlineLarge = TextStyle(
+        fontFamily = MarkaziRegular,
+        fontSize = 32.sp,
+        fontWeight = FontWeight.Bold,
+        color = LittleLemonColor.charcoal
+    ),
 
 )
 
    val  h1 = TextStyle(
     fontFamily = MarkaziRegular,
-    fontSize = 26.sp,
+    fontSize = 40.sp,
     fontWeight = FontWeight.Bold,
+       letterSpacing = 0.1.em,
     color = LittleLemonColor.charcoal
 )
 

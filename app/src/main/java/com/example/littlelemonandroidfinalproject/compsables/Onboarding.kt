@@ -193,7 +193,7 @@ fun Onboarding (navController: NavHostController){
                     )
                 }
 
-                Spacer(modifier = Modifier.height(90.dp))
+                Spacer(modifier = Modifier.height(50.dp))
 
                 // Register button
 
@@ -228,7 +228,6 @@ fun Onboarding (navController: NavHostController){
                                 navController.navigate("Home")
                             }
                         },
-                        //border = BorderStroke(1.dp, SolidColor(Color(0xFFFFA500))),
                         border = BorderStroke(1.dp, SolidColor(LittleLemonColor.stroke)),
                         shape = customShapes.medium,
                         colors = ButtonDefaults.outlinedButtonColors(
