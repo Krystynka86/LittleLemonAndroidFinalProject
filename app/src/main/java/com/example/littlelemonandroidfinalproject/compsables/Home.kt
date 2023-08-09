@@ -205,8 +205,20 @@ fun HomePage(navController: NavController) {
                 )
             }
 
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, top = 30.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.order_delivery).uppercase(),
+                    style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
+                    color = LittleLemonColor.charcoal)
+            }
 
             Spacer(modifier = Modifier.width(16.dp))
+
+
             //Filtered MenuItems
             val filteredMenuItems = if  (searchPhrase.value.isBlank()) {
                 databaseMenuItems
@@ -229,7 +241,10 @@ fun MenuItems(menuItems: List<MenuItemRoom>, context: Context) {
     Spacer(modifier = Modifier
         .width(20.dp)
         .padding(top = 10.dp, bottom = 10.dp))
-    Column {
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 8.dp)
+    ) {
         for (menuItem in menuItems) {
             MenuItem(item = menuItem, context)
         }
@@ -243,11 +258,14 @@ fun MenuItem(item: MenuItemRoom, context: Context) {
     Spacer(modifier = Modifier.width(10.dp))
     Row(modifier = Modifier
         .fillMaxWidth()
-        .padding(top = 8.dp), horizontalArrangement = Arrangement.SpaceEvenly) {
-        Column(modifier = Modifier.fillMaxWidth(0.5f)) {
-            Text(text = item.title, fontWeight = FontWeight.Bold)
+        .padding(8.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly) {
+        Column(modifier = Modifier.fillMaxWidth(0.7f)) {
+            Text(text = item.title, fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = 8.dp))
+            Text(text = item.description,
+                modifier = Modifier.padding(bottom = 8.dp))
             Text(text = "$  ${item.price}")
-            Text(text = item.description)
         }
         Column {
             Spacer(modifier = Modifier.width(10.dp))
@@ -257,7 +275,7 @@ fun MenuItem(item: MenuItemRoom, context: Context) {
                 modifier = Modifier.size(100.dp, 100.dp),
                 contentScale = ContentScale.Crop,
             )
-            Spacer(modifier = Modifier.width(10.dp))
+            Spacer(modifier = Modifier.width(8.dp))
         }
 
     }

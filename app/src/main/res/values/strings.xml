@@ -13,4 +13,5 @@
     <string name="caption_email">Email</string>
     <string name="button_register">Register</string>
     <string name="button_logout">Log out</string>
+    <string name="order_delivery">Order for delivery!</string>
 </resources>
